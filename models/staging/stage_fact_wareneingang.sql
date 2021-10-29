@@ -20,3 +20,4 @@ from {{ source('dorfladen', 'STAGE_WARENEINGANG_KOPF') }} k
 inner join
 {{ source('dorfladen', 'STAGE_WARENEINGANG_POSITION') }} p
 on k.auftragsnr = p.auftragsnr
+//Test
