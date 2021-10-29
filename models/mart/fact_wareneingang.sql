@@ -7,7 +7,7 @@
 select
 lieferant_key
 --,datum_key
-,dbt_scd_id
+,artikel.artikel_Key
 ,markt_key
 ,belegnummer_key
 ,f.datum_wareneingang
@@ -19,7 +19,7 @@ lieferant_key
 ,f.we_nummer
 ,f.RabAuftrKopf
 from {{ ref('stage_fact_wareneingang') }} f
-left join {{ ref('dim_artikel') }} artikel on f.artikelnummer = artikel.artikelnummer and artikel.dbt_valid_to is null
+left join {{ ref('dim_artikel') }} artikel on f.artikelnummer = artikel.artikelnummer-- and artikel.dbt_valid_to is null
 left join {{ ref('dim_lieferant') }} lieferant on f.lieferantennr = lieferant.lieferantennr
 left join {{ ref('dim_kalender') }} kalender on f.datum_wareneingang = kalender.datum
 left join {{ ref('dim_markt') }} markt on f.markt = markt.markt
