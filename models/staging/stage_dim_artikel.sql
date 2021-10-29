@@ -20,7 +20,7 @@ from
 
     union all
 
-    select distinct
+    select
     artikelnummer
     ,ARTBEZLANG as artikelbezeichnung
     ,warengruppe

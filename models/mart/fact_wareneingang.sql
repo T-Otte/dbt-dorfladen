@@ -15,7 +15,7 @@ lieferant_key
 ,f.ges_ek_rechnung
 ,f.ges_ek_liste
 ,f.ges_ek_netto
-,f.case when f.auftragsnr = 0 then lag(f.auftragsnr) over (order by f.datum_wareneingang, f.we_nummer) else f.auftragsnr end as auftragsnr
+,case when f.auftragsnr = 0 then lag(f.auftragsnr) over (order by f.datum_wareneingang, f.we_nummer) else f.auftragsnr end as auftragsnr
 ,f.we_nummer
 ,f.RabAuftrKopf
 from {{ ref('stage_fact_wareneingang') }} f
