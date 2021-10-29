@@ -7,11 +7,10 @@ artikelnummer
 ,warengruppe
 ,mwst_satz
 ,bestandsfuehrung
-
 from
 (
     select
-    artikelnummer
+     artikelnummer
     ,artikelbezeichnung
     ,warengruppe
     ,mwst_satz
@@ -24,7 +23,7 @@ from
     artikelnummer
     ,ARTBEZLANG as artikelbezeichnung
     ,warengruppe
-    ,MWST_PROZ as mwst_satz
+    ,MWST_PROZ / 100 as mwst_satz
     ,BESTFUE as bestandsfuehrung
     from {{ source('dorfladen', 'STAGE_KASSENBON_POSITION') }}
 
@@ -37,4 +36,5 @@ from
     ,mwst_satz
     ,bestandsfuehrung
     from {{ source('dorfladen', 'STAGE_INVENTUR_ART') }}
+    
 )
