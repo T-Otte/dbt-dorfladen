@@ -22,10 +22,10 @@ from
 
     select distinct
     artikelnummer
-    ,artikelbezeichnung
+    ,ARTBEZLANG as artikelbezeichnung
     ,warengruppe
-    ,mwst_satz
-    ,bestandsfuehrung
+    ,MWST_PROZ as mwst_satz
+    ,BESTFUE as bestandsfuehrung
     from {{ source('dorfladen', 'STAGE_KASSENBON_POSITION') }}
 
     union all
