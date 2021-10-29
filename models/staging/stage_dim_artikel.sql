@@ -7,11 +7,10 @@ artikelnummer
 ,warengruppe
 ,mwst_satz
 ,bestandsfuehrung
-
 from
 (
     select
-    artikelnummer
+     artikelnummer
     ,artikelbezeichnung
     ,warengruppe
     ,mwst_satz
